@@ -158,7 +158,7 @@ public class DocServices {
 			throws InvalidParameterException, LicenseException, UnknownAppException, UnknownDocIDException,
 			PermissionException, IDMRepositoryException, GeneralException {
 		final String METHODNAME = "getNumPages";
-		 Long pageNum;
+		Long pageNum;
 
 		try {
 			String userID = null;
@@ -200,7 +200,7 @@ public class DocServices {
 
 				// Convert results.
 				pageNum = Converter.convertUnsignedInt(count);
-				
+
 				if (mLogger.isLoggable(Level.INFO)) {
 					StringBufferWS msg = new StringBufferWS(COMPLETE);
 					msg.append(LICENSE, license, ", ");
@@ -364,11 +364,10 @@ public class DocServices {
 	 * @return
 	 */
 	public List<com.vignette.idm.server.RenditionDetail> getRenditionDetails(String license, String appName,
-			String docID, long pageNum)
-			throws InvalidParameterException, LicenseException, UnknownAppException, UnknownDocIDException,
-			UnknownPageException, PermissionException, IDMRepositoryException, GeneralException {
+			String docID, long pageNum) throws InvalidParameterException, LicenseException, UnknownAppException,
+			UnknownDocIDException, UnknownPageException, PermissionException, IDMRepositoryException, GeneralException {
 		final String METHODNAME = "getRenditionDetails";
-		 List<com.vignette.idm.server.RenditionDetail> renditions;
+		List<com.vignette.idm.server.RenditionDetail> renditions;
 		try {
 			String userID = null;
 			try {
@@ -696,7 +695,7 @@ public class DocServices {
 				map.put("contentType", contentType);
 				map.put("mimeType", mimeType);
 				map.put("hasNextSubPage", hasNextSubPage);
-	
+
 				if (mLogger.isLoggable(Level.INFO)) {
 					StringBufferWS msg = new StringBufferWS(COMPLETE);
 					msg.append(LICENSE, license, ", ");
@@ -1012,7 +1011,7 @@ public class DocServices {
 
 					ByteArrayDataSource dataSource = new ByteArrayDataSource(image.mData, mimeType);
 					rendition = new DataHandler(dataSource);
-					 rendition1 = DocServiceUtils.getByteArrayFromDataHandler(rendition);
+					rendition1 = DocServiceUtils.getByteArrayFromDataHandler(rendition);
 				} else {
 					UnknownSubPageExceptionFaultDetail faultDetail = new UnknownSubPageExceptionFaultDetail();
 					faultDetail.setCallStack(null);
@@ -1024,7 +1023,7 @@ public class DocServices {
 					faultDetail.setWsName(SERVICENAME);
 					throw new UnknownSubPageException(null, faultDetail);
 				}
-				
+
 				if (mLogger.isLoggable(Level.INFO)) {
 					StringBufferWS msg = new StringBufferWS(COMPLETE);
 					msg.append(LICENSE, license, ", ");
@@ -1319,7 +1318,7 @@ public class DocServices {
 				// Convert results.
 				content = image.mData;
 				contentType = image.mExtension;
-				
+
 				if (mLogger.isLoggable(Level.INFO)) {
 					StringBufferWS msg = new StringBufferWS(COMPLETE);
 					msg.append(LICENSE, license, ", ");
@@ -1566,9 +1565,9 @@ public class DocServices {
 				ByteArrayDataSource dataSource = new ByteArrayDataSource(image.mData, image.mExtension);
 				content = new DataHandler(dataSource);
 				byte[] content1 = DocServiceUtils.getByteArrayFromDataHandler(content);
-				
+
 				contentType = image.mExtension;
-				
+
 				if (mLogger.isLoggable(Level.INFO)) {
 					StringBufferWS msg = new StringBufferWS(COMPLETE);
 					msg.append(LICENSE, license, ", ");
@@ -2025,7 +2024,7 @@ public class DocServices {
 
 				// Convert results.
 				annotations = localAnnotations;
-				
+
 				if (mLogger.isLoggable(Level.INFO)) {
 					StringBufferWS msg = new StringBufferWS(COMPLETE);
 					msg.append(LICENSE, license, ", ");
@@ -2259,7 +2258,7 @@ public class DocServices {
 				annotation.setAnnotations(docID, annotations, mForce);
 
 				// Convert results.
-				
+
 				if (mLogger.isLoggable(Level.INFO)) {
 					StringBufferWS msg = new StringBufferWS(COMPLETE);
 					msg.append(LICENSE, license, "");
